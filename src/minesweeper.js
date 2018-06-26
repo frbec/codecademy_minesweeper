@@ -1,19 +1,33 @@
-const printBoard = board => {
-  console.log('Current board:');
-  console.log(board[0].join(' | '));
-  console.log(board[1].join(' | '));
-  console.log(board[2].join(' | '));
+const generatePlayerBoard = (numberOfRows, numberOfcolumns) => {
+  let board = [];
+  for (let indexOfRows = 0;indexOfRows < numberOfRows; indexOfRows++) {
+    let row = []
+    for (let indexOfColumns = 0; indexOfColumns < numberOfcolumns; indexOfColumns++) {
+      row.push(' ');
+    }
+    board.push(row);
+  }
+  return board;
 };
 
-let board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
+const generateBombBoard = (numberOfRows, numberOfcolumns, numberOfBombs) => {
+  let board = [];
+  for (let indexOfRows = 0;indexOfRows < numberOfRows; indexOfRows++) {
+    let row = []
+    for (let indexOfColumns = 0; indexOfColumns < numberOfcolumns; indexOfColumns++) {
+      row.push(null);
+    }
+    board.push(row);
+  }
 
-printBoard(board);
+  let numberOfBombsPlaced = 0;
+  while (numberOfBombsPlaced < numberOfBombs) {
+    let randomRowIndex = Math.floor(Math.random() * numberOfRows);
+    let randomColumnIndex = Math.floor(Math.random() * numberOfcolumns);
+    // Bombs can be placed on top of each other. Fix when learning about control flows.
+    board[randomRowIndex][randomColumnIndex] = 'B';
+    numberOfBombsPlaced++;
+  }
 
-board[0][1] = '1';
-board[2][2] = 'B';
-
-printBoard(board);
+  return board;
+};
