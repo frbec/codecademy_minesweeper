@@ -25,8 +25,10 @@ const generateBombBoard = (numberOfRows, numberOfcolumns, numberOfBombs) => {
     let randomRowIndex = Math.floor(Math.random() * numberOfRows);
     let randomColumnIndex = Math.floor(Math.random() * numberOfcolumns);
     // Bombs can be placed on top of each other. Fix when learning about control flows.
-    board[randomRowIndex][randomColumnIndex] = 'B';
-    numberOfBombsPlaced++;
+    if (!board[randomRowIndex][randomColumnIndex]) {
+      board[randomRowIndex][randomColumnIndex] = 'B';
+      numberOfBombsPlaced++;
+    }
   }
 
   return board;
