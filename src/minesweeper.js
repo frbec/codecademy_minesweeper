@@ -58,7 +58,7 @@ const flipTile = (playerBoard, bombBoard, rowIndex, columnIndex) => {
   } else if (bombBoard[rowIndex][columnIndex] === 'B') {
     playerBoard[rowIndex][columnIndex] = 'B';
   } else {
-    playerBoard = getNumberOfNeighborBombs(bombBoard, rowIndex, columnIndex);
+    playerBoard[rowIndex][columnIndex] = getNumberOfNeighborBombs(bombBoard, rowIndex, columnIndex);
   }
 }
 
@@ -73,6 +73,6 @@ printBoard(playerBoard);
 console.log('Bomb board:');
 printBoard(bombBoard);
 
-flipTile(playerBoard, bombBoard, 0, 0)
+flipTile(playerBoard, bombBoard, 1, 1)
 console.log('Updated plyer board:');
 printBoard(playerBoard);
