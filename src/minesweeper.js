@@ -72,3 +72,7 @@ printBoard(playerBoard);
 
 console.log('Bomb board:');
 printBoard(bombBoard);
+
+flipTile(playerBoard, bombBoard, 0, 0)
+console.log('Updated plyer board:');
+printBoard(playerBoard);
