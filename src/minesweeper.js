@@ -74,5 +74,5 @@ console.log('Bomb board:');
 printBoard(bombBoard);
 
 flipTile(playerBoard, bombBoard, 1, 1)
-console.log('Updated plyer board:');
+console.log('Updated player board:');
 printBoard(playerBoard);
