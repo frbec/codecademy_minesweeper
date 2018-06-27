@@ -1,8 +1,8 @@
 const generatePlayerBoard = (numberOfRows, numberOfcolumns) => {
   let board = [];
-  for (let indexOfRows = 0;indexOfRows < numberOfRows; indexOfRows++) {
+  for (let rowIndex = 0;rowIndex < numberOfRows; rowIndex++) {
     let row = []
-    for (let indexOfColumns = 0; indexOfColumns < numberOfcolumns; indexOfColumns++) {
+    for (let columnIndex = 0; columnIndex < numberOfcolumns; columnIndex++) {
       row.push(' ');
     }
     board.push(row);
@@ -12,9 +12,9 @@ const generatePlayerBoard = (numberOfRows, numberOfcolumns) => {
 
 const generateBombBoard = (numberOfRows, numberOfcolumns, numberOfBombs) => {
   let board = [];
-  for (let indexOfRows = 0;indexOfRows < numberOfRows; indexOfRows++) {
+  for (let rowIndex = 0;rowIndex < numberOfRows; rowIndex++) {
     let row = []
-    for (let indexOfColumns = 0; indexOfColumns < numberOfcolumns; indexOfColumns++) {
+    for (let columnIndex = 0; columnIndex < numberOfcolumns; columnIndex++) {
       row.push(null);
     }
     board.push(row);
@@ -33,6 +33,10 @@ const generateBombBoard = (numberOfRows, numberOfcolumns, numberOfBombs) => {
 
   return board;
 };
+
+const getNumberOfNeighborBombs = (bombBoard, rowIndex, columnIndex) => {
+
+}
 
 const printBoard = board => console.log(board.map(row => row.join(' | ')).join('\n'));
 
